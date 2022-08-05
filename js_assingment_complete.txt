@@ -1,0 +1,35 @@
+Consider the following code snippet:
+
+for (var j = 0; j < 5; j++) {
+  var button= document.createElement('button');
+  button.appendChild(document.createTextNode('Button ' + i));
+  button.addEventListener('click', function(){ console.log(i); });
+  document.body.appendChild(btn);
+}
+
+
+Answer Follwing questions:
+
+(1) What gets logged to the console when the user clicks on “Button 4” and why?
+(2) Provide one or more alternate implementations that will work as expected.
+
+A1. Button 4 would not display since "i" is not defined.
+
+A2. The correct way to iterate through the loop would be: 
+
+btnValues = [];
+
+for (var j = 0; j < 5; j++) {
+  btnValues.push(j);
+  var button= document.createElement('button');
+  button.appendChild(document.createTextNode('Button ' + j));
+  document.body.appendChild(button);
+  btnClick(j);
+}
+
+function btnClick(n){
+    button.addEventListener("click",() => {console.log(btnValues[n]);})
+}
+
+This would result in the console.log returning the designated value upon pressing each button.
+
